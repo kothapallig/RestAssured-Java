@@ -75,13 +75,33 @@ public class BugsApiTests {
                     .spec(responseSpec);
     }
 
-    @Test(dependsOnMethods = {"testPOSTCreateBugOne", "testPOSTCreateBugTwo"})
+
+    @Test
+    public void testPOSTCreateBugThree() {
+        BugRequestBody bug = new BugRequestBody(
+                "Mohamed Ali", 1, "High",
+                "Cart is glitchy", false
+        );
+
+        ResponseSpecification responseSpec = createResponseSpec(bug);
+
+        RestAssured
+                .given()
+                .body(bug)
+                .when()
+                .post()
+                .then()
+                .statusCode(201)
+                .spec(responseSpec);
+    }
+
+    @Test(dependsOnMethods = {"testPOSTCreateBugOne", "testPOSTCreateBugTwo", "testPOSTCreateBugThree"})
     public void testGETRetrieveBugs() {
         RestAssured
                 .get()
                 .then()
                     .statusCode(200)
-                    .body("size()", equalTo(2));
+                    .body("size()", equalTo(3));
     }
 
 
