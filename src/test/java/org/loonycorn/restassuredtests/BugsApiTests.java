@@ -175,6 +175,12 @@ public class BugsApiTests {
                         .statusCode(200)
                         .body("bug_id", equalTo(bugId));
         }
+
+        RestAssured
+                .get()
+                .then()
+                    .statusCode(200)
+                    .body("size()", equalTo(0));
     }
 
 }
