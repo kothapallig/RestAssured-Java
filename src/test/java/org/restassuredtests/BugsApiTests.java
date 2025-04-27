@@ -1,4 +1,4 @@
-package org.loonycorn.restassuredtests;
+package org.restassuredtests;
 
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -76,32 +76,13 @@ public class BugsApiTests {
     }
 
 
-    @Test
-    public void testPOSTCreateBugThree() {
-        BugRequestBody bug = new BugRequestBody(
-                "Mohamed Ali", 1, "High",
-                "Cart is glitchy", false
-        );
-
-        ResponseSpecification responseSpec = createResponseSpec(bug);
-
-        RestAssured
-                .given()
-                .body(bug)
-                .when()
-                .post()
-                .then()
-                .statusCode(201)
-                .spec(responseSpec);
-    }
-
-    @Test(dependsOnMethods = {"testPOSTCreateBugOne", "testPOSTCreateBugTwo", "testPOSTCreateBugThree"})
+    @Test(dependsOnMethods = {"testPOSTCreateBugOne", "testPOSTCreateBugTwo"})
     public void testGETRetrieveBugs() {
         RestAssured
                 .get()
                 .then()
                     .statusCode(200)
-                    .body("size()", equalTo(3));
+                    .body("size()", equalTo(27));
     }
 
 

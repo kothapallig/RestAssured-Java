@@ -1,2 +1,2 @@
-cd /Users/apple/IdeaProjects/learning-rest-assured
+cd /Users/testuser/eclipse-workspace/learning-rest-assured
 mvn test
