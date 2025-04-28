@@ -5,8 +5,8 @@ import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.specification.ResponseSpecification;
-import org.loonycorn.restassuredtests.model.BugRequestBody;
 
+import org.restassuredtests.model.BugRequestBody;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 

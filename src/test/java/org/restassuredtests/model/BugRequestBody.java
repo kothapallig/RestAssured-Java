@@ -1,4 +1,4 @@
-package org.loonycorn.restassuredtests.model;
+package org.restassuredtests.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
